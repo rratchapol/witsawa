@@ -21,3 +21,48 @@
     </div>
   </div>
 </section>
+
+<style>
+  .partner-section { padding: 80px 5%; }
+  .partner-inner {
+    max-width: 900px; margin: 0 auto;
+    background: linear-gradient(135deg, rgba(0,52,128,0.15), rgba(0,102,255,0.08));
+    border: 1px solid rgba(56,189,248,0.15);
+    border-radius: 24px; padding: 56px 56px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 48px; align-items: center;
+  }
+  .partner-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,102,255,0.1);
+    border: 1px solid rgba(56,189,248,0.25);
+    border-radius: 8px; padding: 6px 14px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--blue-light); margin-bottom: 20px;
+  }
+  .partner-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px; font-weight: 700;
+    line-height: 1.2; margin-bottom: 14px; letter-spacing: -0.5px;
+  }
+  .partner-desc { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+
+  .partner-visual {
+    background: rgba(0,102,255,0.06);
+    border: 1px solid rgba(56,189,248,0.12);
+    border-radius: 16px; padding: 32px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .p-stat {
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--glass-border); padding-bottom: 14px;
+  }
+  .p-stat:last-child { border-bottom: none; padding-bottom: 0; }
+  .p-stat-label { font-size: 13px; color: var(--muted); }
+  .p-stat-val { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; color: var(--blue-light); }
+
+  @media (max-width: 1024px) {
+    .partner-inner { grid-template-columns: 1fr; padding: 40px; }
+  }
+</style>

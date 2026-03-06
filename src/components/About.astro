@@ -45,3 +45,75 @@
     </div>
   </div>
 </section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .about-visual { position: relative; border-radius: 24px; overflow: hidden; }
+
+  .about-visual-inner {
+    background: linear-gradient(135deg, rgba(0,52,128,0.45), rgba(0,102,255,0.22));
+    border: 1px solid rgba(56,189,248,0.30);
+    border-radius: 24px;
+    padding: 40px;
+    display: flex; flex-direction: column; gap: 20px;
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.18);
+  }
+
+  .about-cert {
+    display: flex; align-items: center; gap: 16px;
+    background: rgba(0,102,255,0.14);
+    border: 1px solid rgba(56,189,248,0.30);
+    border-radius: 12px;
+    padding: 16px 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 4px 16px rgba(0,0,0,0.3);
+  }
+  .cert-icon {
+    width: 44px; height: 44px; min-width: 44px;
+    background: linear-gradient(135deg, #0052cc, #0ea5e9);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .cert-title { font-weight: 600; font-size: 14px; }
+  .cert-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  .about-feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .about-feature {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 12px; padding: 16px;
+    backdrop-filter: blur(14px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .about-feature .icon { font-size: 22px; margin-bottom: 8px; }
+  .about-feature .label { font-size: 13px; font-weight: 600; }
+  .about-feature .val { font-size: 12px; color: var(--muted); }
+
+  .about-text { max-width: 540px; }
+  .about-highlights { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+  .about-hl { display: flex; align-items: flex-start; gap: 14px; }
+  .hl-icon {
+    width: 36px; height: 36px; min-width: 36px;
+    background: rgba(0,102,255,0.12);
+    border: 1px solid rgba(0,102,255,0.25);
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .hl-title { font-weight: 600; font-size: 15px; }
+  .hl-desc { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+  @media (max-width: 1024px) {
+    .about-grid { grid-template-columns: 1fr; }
+  }
+</style>

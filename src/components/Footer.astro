@@ -19,3 +19,34 @@ const logoBase64 = "/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAA
     </div>
   </div>
 </footer>
+
+<style>
+  footer {
+    border-top: 1px solid var(--glass-border);
+    padding: 48px 5%;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 24px;
+  }
+  .footer-copy { font-size: 13px; color: var(--muted); }
+  .footer-social { display: flex; gap: 14px; }
+  .social-btn {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+    border: 1px solid rgba(255,255,255,0.20);
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; text-decoration: none;
+    backdrop-filter: blur(20px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), 0 4px 12px rgba(0,0,0,0.35);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .social-btn:hover {
+    background: rgba(0,102,255,0.15);
+    border-color: rgba(56,189,248,0.3);
+  }
+</style>
