@@ -1,68 +1,153 @@
+---
+/* ── Partnership stats data ── */
+const partnerStats = [
+  { label: "Partnership Since", value: "July 2021" },
+  { label: "Focus Area", value: "Startup Ecosystem" },
+  { label: "Mission", value: "Bridge Talent Gap" },
+  { label: "Certification", value: "ISO/IEC 29110" },
+  { label: "HQ", value: "Bangkok, Thailand" },
+];
+---
+
+<!-- ══════════════════════════ Partnership Section ══════════════════════════ -->
 <section class="partner-section">
   <div class="partner-inner reveal">
+    <!-- Left: Text Content -->
     <div>
       <div class="partner-badge">🤝 Strategic Partnership</div>
-      <div class="partner-title">Witsawa &<br/>True Digital Park</div>
+      <div class="partner-title">
+        Witsawa &<br />True Digital Park
+      </div>
       <p class="partner-desc">
-        Since July 2021, Witsawa has been an official One-Stop Service partner at True Digital Park — 
-        Thailand's premier tech hub. Together we're strengthening the startup ecosystem and bridging 
-        the software talent gap for Thailand's next generation of innovators.
+        Since July 2021, Witsawa has been an official One-Stop Service partner
+        at True Digital Park — Thailand's premier tech hub. Together we're
+        strengthening the startup ecosystem and bridging the software talent gap
+        for Thailand's next generation of innovators.
       </p>
-      <a href="https://www.truedigitalpark.com/en" target="_blank" class="btn-ghost" style="font-size:13px; padding: 10px 22px;">
+      <a
+        href="https://www.truedigitalpark.com/en"
+        target="_blank"
+        class="btn-ghost"
+        style="font-size:13px; padding: 10px 22px;"
+      >
         Visit True Digital Park →
       </a>
     </div>
+
+    <!-- Right: Stats Panel -->
     <div class="partner-visual">
-      <div class="p-stat"><span class="p-stat-label">Partnership Since</span><span class="p-stat-val">July 2021</span></div>
-      <div class="p-stat"><span class="p-stat-label">Focus Area</span><span class="p-stat-val">Startup Ecosystem</span></div>
-      <div class="p-stat"><span class="p-stat-label">Mission</span><span class="p-stat-val">Bridge Talent Gap</span></div>
-      <div class="p-stat"><span class="p-stat-label">Certification</span><span class="p-stat-val">ISO/IEC 29110</span></div>
-      <div class="p-stat"><span class="p-stat-label">HQ</span><span class="p-stat-val">Bangkok, Thailand</span></div>
+      {
+        partnerStats.map(({ label, value }) => (
+          <div class="p-stat">
+            <span class="p-stat-label">{label}</span>
+            <span class="p-stat-val">{value}</span>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
 
+<!-- ══════════════════════════ Styles ══════════════════════════ -->
 <style>
-  .partner-section { padding: 80px 5%; }
+  /* ── Section ── */
+  .partner-section {
+    padding: 80px 5%;
+  }
+
+  /* ── Inner Container ── */
   .partner-inner {
-    max-width: 900px; margin: 0 auto;
-    background: linear-gradient(135deg, rgba(0,52,128,0.15), rgba(0,102,255,0.08));
-    border: 1px solid rgba(56,189,248,0.15);
-    border-radius: 24px; padding: 56px 56px;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 48px; align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 52, 128, 0.15),
+      rgba(0, 102, 255, 0.08)
+    );
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    border-radius: 24px;
+    padding: 56px 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
   }
+
+  /* ── Badge ── */
   .partner-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(0,102,255,0.1);
-    border: 1px solid rgba(56,189,248,0.25);
-    border-radius: 8px; padding: 6px 14px;
-    font-size: 11px; font-weight: 700;
-    letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--blue-light); margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 102, 255, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    margin-bottom: 20px;
   }
+
+  /* ── Title & Description ── */
   .partner-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 28px; font-weight: 700;
-    line-height: 1.2; margin-bottom: 14px; letter-spacing: -0.5px;
+    font-family: "Inter", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
   }
-  .partner-desc { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
 
+  .partner-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  /* ── Stats Panel (Right) ── */
   .partner-visual {
-    background: rgba(0,102,255,0.06);
-    border: 1px solid rgba(56,189,248,0.12);
-    border-radius: 16px; padding: 32px;
-    display: flex; flex-direction: column; gap: 16px;
+    background: rgba(0, 102, 255, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.12);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
-  .p-stat {
-    display: flex; align-items: center; justify-content: space-between;
-    border-bottom: 1px solid var(--glass-border); padding-bottom: 14px;
-  }
-  .p-stat:last-child { border-bottom: none; padding-bottom: 0; }
-  .p-stat-label { font-size: 13px; color: var(--muted); }
-  .p-stat-val { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; color: var(--blue-light); }
 
+  .p-stat {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 14px;
+  }
+
+  .p-stat:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .p-stat-label {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .p-stat-val {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--blue-light);
+  }
+
+  /* ── Responsive ── */
   @media (max-width: 1024px) {
-    .partner-inner { grid-template-columns: 1fr; padding: 40px; }
+    .partner-inner {
+      grid-template-columns: 1fr;
+      padding: 40px;
+    }
   }
 </style>

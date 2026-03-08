@@ -1,119 +1,271 @@
+---
+/* ── Certification badges ── */
+const certifications = [
+  {
+    icon: "🏆",
+    title: "ISO/IEC 29110 Certified",
+    subtitle: "International Software Engineering Standard",
+  },
+  {
+    icon: "🤝",
+    title: "True Digital Park Partner",
+    subtitle: "Official One-Stop Service Partner since July 2021",
+    iconStyle: "background: linear-gradient(135deg,#0a3d62,#0ea5e9);",
+  },
+];
+
+/* ── Feature cards ── */
+const features = [
+  { icon: "💻", label: "Web Apps", value: "Enterprise-grade" },
+  { icon: "📱", label: "Mobile Apps", value: "iOS & Android" },
+  { icon: "🏢", label: "ERP Systems", value: "Custom workflows" },
+  { icon: "♻️", label: "ESG Digital", value: "Sustainability tech" },
+];
+
+/* ── Highlight items ── */
+const highlights = [
+  {
+    icon: "🎯",
+    title: "Full-Spectrum Engineering Team",
+    desc: "Software engineers, UX/UI designers, project coordinators — all under one roof for end-to-end delivery.",
+  },
+  {
+    icon: "🌱",
+    title: "ESG & Digital Transformation",
+    desc: "Driving sustainable practices through innovative tech — helping companies achieve responsible digital growth.",
+  },
+  {
+    icon: "🔗",
+    title: "Tech Ecosystem Builder",
+    desc: "Strategic alliances with corporations, government entities, and startups to fuel collaborative innovation.",
+  },
+];
+---
+
+<!-- ══════════════════════════ About Section ══════════════════════════ -->
 <section id="about" style="padding: 100px 5%;">
   <div style="max-width:1200px; margin: 0 auto;">
     <div class="about-grid">
+      <!-- Left: Visual Card -->
       <div class="about-visual reveal">
         <div class="about-visual-inner glass-card">
-          <div class="about-cert">
-            <div class="cert-icon">🏆</div>
-            <div><div class="cert-title">ISO/IEC 29110 Certified</div><div class="cert-sub">International Software Engineering Standard</div></div>
-          </div>
-          <div class="about-cert">
-            <div class="cert-icon" style="background: linear-gradient(135deg,#0a3d62,#0ea5e9);">🤝</div>
-            <div><div class="cert-title">True Digital Park Partner</div><div class="cert-sub">Official One-Stop Service Partner since July 2021</div></div>
-          </div>
+          <!-- Certifications -->
+          {
+            certifications.map(({ icon, title, subtitle, iconStyle }) => (
+              <div class="about-cert">
+                <div class="cert-icon" style={iconStyle}>
+                  {icon}
+                </div>
+                <div>
+                  <div class="cert-title">{title}</div>
+                  <div class="cert-sub">{subtitle}</div>
+                </div>
+              </div>
+            ))
+          }
+
+          <!-- Feature Grid -->
           <div class="about-feature-row">
-            <div class="about-feature"><div class="icon">💻</div><div class="label">Web Apps</div><div class="val">Enterprise-grade</div></div>
-            <div class="about-feature"><div class="icon">📱</div><div class="label">Mobile Apps</div><div class="val">iOS & Android</div></div>
-            <div class="about-feature"><div class="icon">🏢</div><div class="label">ERP Systems</div><div class="val">Custom workflows</div></div>
-            <div class="about-feature"><div class="icon">♻️</div><div class="label">ESG Digital</div><div class="val">Sustainability tech</div></div>
+            {
+              features.map(({ icon, label, value }) => (
+                <div class="about-feature">
+                  <div class="icon">{icon}</div>
+                  <div class="label">{label}</div>
+                  <div class="val">{value}</div>
+                </div>
+              ))
+            }
           </div>
         </div>
       </div>
+
+      <!-- Right: Text Content -->
       <div class="about-text reveal reveal-delay-2">
         <div class="section-tag">About Witsawa</div>
-        <h2 class="section-title">We Are <span class="accent">Engineers</span><br/>Who Build Dreams</h2>
+        <h2 class="section-title">
+          We Are <span class="accent">Engineers</span><br />Who Build Dreams
+        </h2>
         <p class="section-desc">
-          Witsawa Corporation Co., Ltd. is a Bangkok-based software engineering firm committed to
-          transforming ideas into high-impact digital products. We combine technical excellence with
-          deep business acumen to deliver solutions that matter.
+          Witsawa Corporation Co., Ltd. is a Bangkok-based software engineering
+          firm committed to transforming ideas into high-impact digital
+          products. We combine technical excellence with deep business acumen to
+          deliver solutions that matter.
         </p>
+
+        <!-- Highlights -->
         <div class="about-highlights">
-          <div class="about-hl">
-            <div class="hl-icon">🎯</div>
-            <div><div class="hl-title">Full-Spectrum Engineering Team</div><div class="hl-desc">Software engineers, UX/UI designers, project coordinators — all under one roof for end-to-end delivery.</div></div>
-          </div>
-          <div class="about-hl">
-            <div class="hl-icon">🌱</div>
-            <div><div class="hl-title">ESG & Digital Transformation</div><div class="hl-desc">Driving sustainable practices through innovative tech — helping companies achieve responsible digital growth.</div></div>
-          </div>
-          <div class="about-hl">
-            <div class="hl-icon">🔗</div>
-            <div><div class="hl-title">Tech Ecosystem Builder</div><div class="hl-desc">Strategic alliances with corporations, government entities, and startups to fuel collaborative innovation.</div></div>
-          </div>
+          {
+            highlights.map(({ icon, title, desc }) => (
+              <div class="about-hl">
+                <div class="hl-icon">{icon}</div>
+                <div>
+                  <div class="hl-title">{title}</div>
+                  <div class="hl-desc">{desc}</div>
+                </div>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ══════════════════════════ Styles ══════════════════════════ -->
 <style>
+  /* ── Grid Layout ── */
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 48px;
     align-items: center;
-    max-width: 1200px; margin: 0 auto;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
-  .about-visual { position: relative; border-radius: 24px; overflow: hidden; }
+  /* ── Visual Card (Left) ── */
+  .about-visual {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+  }
 
   .about-visual-inner {
-    background: linear-gradient(135deg, rgba(0,52,128,0.45), rgba(0,102,255,0.22));
-    border: 1px solid rgba(56,189,248,0.30);
+    background: linear-gradient(
+      135deg,
+      rgba(0, 52, 128, 0.45),
+      rgba(0, 102, 255, 0.22)
+    );
+    border: 1px solid rgba(56, 189, 248, 0.3);
     border-radius: 24px;
     padding: 40px;
-    display: flex; flex-direction: column; gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     backdrop-filter: blur(28px) saturate(160%);
     -webkit-backdrop-filter: blur(28px) saturate(160%);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.18);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
   }
 
+  /* ── Certification Badges ── */
   .about-cert {
-    display: flex; align-items: center; gap: 16px;
-    background: rgba(0,102,255,0.14);
-    border: 1px solid rgba(56,189,248,0.30);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(0, 102, 255, 0.14);
+    border: 1px solid rgba(56, 189, 248, 0.3);
     border-radius: 12px;
     padding: 16px 20px;
     backdrop-filter: blur(12px);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 4px 16px rgba(0,0,0,0.3);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      0 4px 16px rgba(0, 0, 0, 0.3);
   }
+
   .cert-icon {
-    width: 44px; height: 44px; min-width: 44px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
     background: linear-gradient(135deg, #0052cc, #0ea5e9);
     border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 20px;
   }
-  .cert-title { font-weight: 600; font-size: 14px; }
-  .cert-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
-  .about-feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .about-feature {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.16);
-    border-radius: 12px; padding: 16px;
-    backdrop-filter: blur(14px);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 4px 12px rgba(0,0,0,0.3);
+  .cert-title {
+    font-weight: 600;
+    font-size: 14px;
   }
-  .about-feature .icon { font-size: 22px; margin-bottom: 8px; }
-  .about-feature .label { font-size: 13px; font-weight: 600; }
-  .about-feature .val { font-size: 12px; color: var(--muted); }
 
-  .about-text { max-width: 540px; }
-  .about-highlights { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
-  .about-hl { display: flex; align-items: flex-start; gap: 14px; }
+  .cert-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ── Feature Cards ── */
+  .about-feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .about-feature {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    padding: 16px;
+    backdrop-filter: blur(14px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .about-feature .icon {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .about-feature .label {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .about-feature .val {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ── Text Content (Right) ── */
+  .about-text {
+    max-width: 540px;
+  }
+
+  .about-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .about-hl {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
   .hl-icon {
-    width: 36px; height: 36px; min-width: 36px;
-    background: rgba(0,102,255,0.12);
-    border: 1px solid rgba(0,102,255,0.25);
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    background: rgba(0, 102, 255, 0.12);
+    border: 1px solid rgba(0, 102, 255, 0.25);
     border-radius: 9px;
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 16px;
   }
-  .hl-title { font-weight: 600; font-size: 15px; }
-  .hl-desc { font-size: 13px; color: var(--muted); margin-top: 2px; }
 
+  .hl-title {
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .hl-desc {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ── Responsive ── */
   @media (max-width: 1024px) {
-    .about-grid { grid-template-columns: 1fr; }
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

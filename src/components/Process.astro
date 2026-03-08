@@ -1,75 +1,168 @@
+---
+/* ── Process steps data ── */
+const processSteps = [
+  {
+    icon: "🔍",
+    title: "Discovery",
+    desc: "Deep-dive into your requirements, goals, and constraints. We define scope, timelines, and technical architecture together.",
+    revealDelay: "",
+  },
+  {
+    icon: "🎨",
+    title: "Design",
+    desc: "UX research, wireframes, and high-fidelity prototypes. User-first design that balances aesthetics with functionality.",
+    revealDelay: "reveal-delay-1",
+  },
+  {
+    icon: "⚙️",
+    title: "Engineering",
+    desc: "Agile sprints with continuous delivery. ISO 29110-aligned development practices ensuring quality at every commit.",
+    revealDelay: "reveal-delay-2",
+  },
+  {
+    icon: "🚀",
+    title: "Launch & Support",
+    desc: "Rigorous QA, staged deployment, and ongoing support. We don't disappear after go-live — we stay as your tech partner.",
+    revealDelay: "reveal-delay-3",
+  },
+];
+---
+
+<!-- ══════════════════════════ Process Section ══════════════════════════ -->
 <section id="process" class="process-section">
+  <!-- Header -->
   <div class="process-header reveal">
     <div class="section-tag">How We Work</div>
-    <h2 class="section-title">Our Development <span class="accent">Process</span></h2>
-    <p class="section-desc" style="margin: 0 auto;">A transparent, structured workflow that keeps you informed and in control at every stage.</p>
+    <h2 class="section-title">
+      Our Development <span class="accent">Process</span>
+    </h2>
+    <p class="section-desc" style="margin: 0 auto;">
+      A transparent, structured workflow that keeps you informed and in control
+      at every stage.
+    </p>
   </div>
+
+  <!-- Steps Grid -->
   <div class="process-steps">
-    <div class="process-step reveal">
-      <div class="step-num"><span class="step-icon">🔍</span></div>
-      <div class="step-title">Discovery</div>
-      <div class="step-desc">Deep-dive into your requirements, goals, and constraints. We define scope, timelines, and technical architecture together.</div>
-    </div>
-    <div class="process-step reveal reveal-delay-1">
-      <div class="step-num"><span class="step-icon">🎨</span></div>
-      <div class="step-title">Design</div>
-      <div class="step-desc">UX research, wireframes, and high-fidelity prototypes. User-first design that balances aesthetics with functionality.</div>
-    </div>
-    <div class="process-step reveal reveal-delay-2">
-      <div class="step-num"><span class="step-icon">⚙️</span></div>
-      <div class="step-title">Engineering</div>
-      <div class="step-desc">Agile sprints with continuous delivery. ISO 29110-aligned development practices ensuring quality at every commit.</div>
-    </div>
-    <div class="process-step reveal reveal-delay-3">
-      <div class="step-num"><span class="step-icon">🚀</span></div>
-      <div class="step-title">Launch & Support</div>
-      <div class="step-desc">Rigorous QA, staged deployment, and ongoing support. We don't disappear after go-live — we stay as your tech partner.</div>
-    </div>
+    {
+      processSteps.map(({ icon, title, desc, revealDelay }) => (
+        <div class={`process-step reveal ${revealDelay}`}>
+          <div class="step-num">
+            <span class="step-icon">{icon}</span>
+          </div>
+          <div class="step-title">{title}</div>
+          <div class="step-desc">{desc}</div>
+        </div>
+      ))
+    }
   </div>
 </section>
 
+<!-- ══════════════════════════ Styles ══════════════════════════ -->
 <style>
-  .process-section { padding: 100px 5%; }
-  .process-header { text-align: center; max-width: 600px; margin: 0 auto 64px; }
+  /* ── Section ── */
+  .process-section {
+    padding: 100px 5%;
+  }
 
+  .process-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 64px;
+  }
+
+  /* ── Steps Grid ── */
   .process-steps {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 24px; max-width: 1100px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
     position: relative;
   }
+
+  /* Connecting line between steps */
   .process-steps::before {
-    content: '';
-    position: absolute; top: 36px; left: 15%; right: 15%;
+    content: "";
+    position: absolute;
+    top: 36px;
+    left: 15%;
+    right: 15%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(56,189,248,0.3) 20%, rgba(56,189,248,0.3) 80%, transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(56, 189, 248, 0.3) 20%,
+      rgba(56, 189, 248, 0.3) 80%,
+      transparent
+    );
     z-index: 0;
   }
 
+  /* ── Individual Step ── */
   .process-step {
-    display: flex; flex-direction: column; align-items: center;
-    text-align: center; position: relative; z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
   }
+
   .step-num {
-    width: 72px; height: 72px; border-radius: 50%;
-    background: linear-gradient(135deg, rgba(0,52,128,0.4), rgba(0,102,255,0.2));
-    border: 1px solid rgba(56,189,248,0.3);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Inter', sans-serif;
-    font-size: 20px; font-weight: 700;
-    color: var(--blue-light); margin-bottom: 20px;
-    box-shadow: 0 0 24px rgba(0,102,255,0.15);
-    transition: box-shadow 0.3s, transform 0.3s;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 52, 128, 0.4),
+      rgba(0, 102, 255, 0.2)
+    );
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--blue-light);
+    margin-bottom: 20px;
+    box-shadow: 0 0 24px rgba(0, 102, 255, 0.15);
+    transition:
+      box-shadow 0.3s,
+      transform 0.3s;
   }
+
   .process-step:hover .step-num {
-    box-shadow: 0 0 36px rgba(0,102,255,0.3);
+    box-shadow: 0 0 36px rgba(0, 102, 255, 0.3);
     transform: scale(1.05);
   }
-  .step-icon { font-size: 26px; }
-  .step-title { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 8px; }
-  .step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
+  .step-icon {
+    font-size: 26px;
+  }
+
+  .step-title {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── Responsive ── */
   @media (max-width: 1024px) {
-    .process-steps { grid-template-columns: repeat(2, 1fr); }
-    .process-steps::before { display: none; }
+    .process-steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-steps::before {
+      display: none;
+    }
   }
 </style>

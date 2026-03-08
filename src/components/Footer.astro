@@ -1,52 +1,131 @@
 ---
-import logoWitsawa from '../assets/logoWitsawa.png';
+import logoWitsawa from "../assets/logoWitsawa.png";
+
+/* ── Social link data ── */
+const socialLinks = [
+  { href: "https://facebook.com/witsawa", label: "Facebook", icon: "📘" },
+  { href: "https://page.line.me/witsawa", label: "LINE", icon: "💚" },
+  { href: "mailto:contact@witsawa.com", label: "Email", icon: "📧" },
+];
 ---
+
+<!-- ══════════════════════════ Footer ══════════════════════════ -->
 <footer>
   <div class="footer-inner">
-    <div>
-      <a href="#" class="nav-logo" style="margin-bottom: 8px; display: inline-flex;">
-        <img src={logoWitsawa.src} alt="Witsawa Logo" style="width:36px;height:36px;object-fit:contain;display:block;" />
-        <span class="logo-text" style="color:#ffffff;">Witsawa</span>
+    <!-- Brand & Copyright -->
+    <div class="footer-brand">
+      <a href="#" class="footer-logo">
+        <img src={logoWitsawa.src} alt="Witsawa Logo" class="footer-logo-img" />
+        <span class="footer-logo-text">Witsawa</span>
       </a>
-      <div class="footer-copy" style="margin-top: 8px;">
+
+      <p class="footer-copy">
         © 2024 Witsawa Corporation Co., Ltd. · All rights reserved.
-      </div>
+      </p>
     </div>
-    <div class="footer-social">
-      <a href="https://facebook.com/witsawa" target="_blank" class="social-btn" title="Facebook">📘</a>
-      <a href="https://page.line.me/witsawa" target="_blank" class="social-btn" title="LINE">💚</a>
-      <a href="mailto:contact@witsawa.com" class="social-btn" title="Email">📧</a>
-    </div>
+
+    <!-- Social Links -->
+    <nav class="footer-social" aria-label="Social media links">
+      {
+        socialLinks.map(({ href, label, icon }) => (
+          <a
+            href={href}
+            target={href.startsWith("mailto:") ? undefined : "_blank"}
+            class="social-btn"
+            title={label}
+          >
+            {icon}
+          </a>
+        ))
+      }
+    </nav>
   </div>
 </footer>
 
+<!-- ══════════════════════════ Styles ══════════════════════════ -->
 <style>
+  /* ── Container ── */
   footer {
     border-top: 1px solid var(--glass-border);
     padding: 48px 5%;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
   }
+
   .footer-inner {
-    max-width: 1200px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
   }
-  .footer-copy { font-size: 13px; color: var(--muted); }
-  .footer-social { display: flex; gap: 14px; }
+
+  /* ── Brand & Logo ── */
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    text-decoration: none;
+  }
+
+  .footer-logo-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .footer-logo-text {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.3px;
+  }
+
+  .footer-copy {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ── Social Buttons ── */
+  .footer-social {
+    display: flex;
+    gap: 14px;
+  }
+
   .social-btn {
-    width: 38px; height: 38px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
-    border: 1px solid rgba(255,255,255,0.20);
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    text-decoration: none;
+
+    /* Glassmorphism look */
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.05)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 9px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px; text-decoration: none;
     backdrop-filter: blur(20px);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), 0 4px 12px rgba(0,0,0,0.35);
-    transition: background 0.2s, border-color 0.2s;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      0 4px 12px rgba(0, 0, 0, 0.35);
+
+    transition:
+      background 0.2s,
+      border-color 0.2s;
   }
+
   .social-btn:hover {
-    background: rgba(0,102,255,0.15);
-    border-color: rgba(56,189,248,0.3);
+    background: rgba(0, 102, 255, 0.15);
+    border-color: rgba(56, 189, 248, 0.3);
   }
 </style>

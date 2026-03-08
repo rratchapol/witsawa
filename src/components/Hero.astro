@@ -1,65 +1,104 @@
+---
+/* ── Stats data ── */
+const stats = [
+  { num: "50+", label: "Projects Delivered" },
+  { num: "9+", label: "Enterprise Clients" },
+  { num: "ISO", label: "29110 Certified" },
+  { num: "2020", label: "Founded" },
+];
+---
+
+<!-- ══════════════════════════ Hero Section ══════════════════════════ -->
 <section class="hero" id="home">
   <div>
+    <!-- Badge -->
     <div class="hero-badge">
       <span class="dot"></span>
       ISO/IEC 29110 Certified · Thailand's Premier Tech Studio
     </div>
+
+    <!-- Headline -->
     <h1 class="hero-title">
-      <span class="line-white">Code Your Dream,</span><br/>
+      <span class="line-white">Code Your Dream,</span><br />
       <span class="line-glow">Write the Future.</span>
     </h1>
+
+    <!-- Subtext -->
     <p class="hero-sub">
-      Witsawa Corporation is a full-spectrum software engineering firm — 
-      building web apps, mobile solutions, enterprise systems, and digital 
+      Witsawa Corporation is a full-spectrum software engineering firm —
+      building web apps, mobile solutions, enterprise systems, and digital
       transformation strategies for ambitious businesses.
     </p>
+
+    <!-- CTA Buttons -->
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary"><span>Start a Project</span><span>→</span></a>
-      <a href="#services" class="btn-ghost"><span>Explore Services</span></a>
+      <a href="#contact" class="btn-primary">
+        <span>Start a Project</span><span>→</span>
+      </a>
+      <a href="#services" class="btn-ghost">
+        <span>Explore Services</span>
+      </a>
     </div>
+
+    <!-- Stats -->
     <div class="hero-stats">
-      <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">Projects Delivered</div></div>
-      <div class="hero-divider"></div>
-      <div class="stat-item"><div class="stat-num">9+</div><div class="stat-label">Enterprise Clients</div></div>
-      <div class="hero-divider"></div>
-      <div class="stat-item"><div class="stat-num">ISO</div><div class="stat-label">29110 Certified</div></div>
-      <div class="hero-divider"></div>
-      <div class="stat-item"><div class="stat-num">2020</div><div class="stat-label">Founded</div></div>
+      {
+        stats.map(({ num, label }, i) => (
+          <>
+            {i > 0 && <div class="hero-divider" />}
+            <div class="stat-item">
+              <div class="stat-num">{num}</div>
+              <div class="stat-label">{label}</div>
+            </div>
+          </>
+        ))
+      }
     </div>
   </div>
 </section>
 
+<!-- ══════════════════════════ Styles ══════════════════════════ -->
 <style>
+  /* ── Hero Container ── */
   .hero {
     min-height: 100vh;
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     padding: 120px 5% 80px;
     position: relative;
   }
 
+  /* ── Badge ── */
   .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(0,102,255,0.12);
-    border: 1px solid rgba(0,102,255,0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 102, 255, 0.12);
+    border: 1px solid rgba(0, 102, 255, 0.3);
     border-radius: 100px;
     padding: 6px 16px 6px 8px;
-    font-size: 12px; font-weight: 500;
+    font-size: 12px;
+    font-weight: 500;
     color: var(--blue-light);
     margin-bottom: 28px;
     backdrop-filter: blur(8px);
     animation: fadeUp 0.8s ease both;
   }
+
   .hero-badge .dot {
-    width: 6px; height: 6px;
+    width: 6px;
+    height: 6px;
     background: var(--cyan);
     border-radius: 50%;
     box-shadow: 0 0 8px var(--cyan);
     animation: pulse 2s infinite;
   }
 
+  /* ── Title ── */
   .hero-title {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: clamp(42px, 7vw, 88px);
     font-weight: 700;
     line-height: 1.05;
@@ -67,50 +106,83 @@
     margin-bottom: 24px;
     animation: fadeUp 0.9s 0.1s ease both;
   }
+
   .hero-title .line-glow {
     background: linear-gradient(90deg, #fff 30%, #38bdf8 60%, #0ea5e9 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .hero-title .line-white { color: #fff; }
 
+  .hero-title .line-white {
+    color: #fff;
+  }
+
+  /* ── Subtext ── */
   .hero-sub {
     font-size: clamp(15px, 2vw, 18px);
     color: var(--muted);
-    max-width: 560px; margin: 0 auto 42px;
+    max-width: 560px;
+    margin: 0 auto 42px;
     line-height: 1.7;
     animation: fadeUp 1s 0.2s ease both;
   }
 
+  /* ── CTA Buttons ── */
   .hero-actions {
-    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
     animation: fadeUp 1s 0.3s ease both;
   }
 
+  /* ── Stats ── */
   .hero-stats {
-    display: flex; gap: 48px; justify-content: center; flex-wrap: wrap;
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    flex-wrap: wrap;
     margin-top: 72px;
     animation: fadeUp 1s 0.4s ease both;
   }
-  .stat-item { text-align: center; }
+
+  .stat-item {
+    text-align: center;
+  }
+
   .stat-num {
-    font-family: 'Inter', sans-serif;
-    font-size: 36px; font-weight: 700;
+    font-family: "Inter", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
     background: linear-gradient(135deg, #fff, #38bdf8);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     background-clip: text;
     line-height: 1;
   }
-  .stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
-  .hero-divider {
-    width: 1px; background: var(--glass-border);
-    height: 48px; align-self: center;
+  .stat-label {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
   }
 
+  .hero-divider {
+    width: 1px;
+    background: var(--glass-border);
+    height: 48px;
+    align-self: center;
+  }
+
+  /* ── Responsive ── */
   @media (max-width: 768px) {
-    .hero-stats { gap: 24px; }
-    .hero-divider { display: none; }
+    .hero-stats {
+      gap: 24px;
+    }
+
+    .hero-divider {
+      display: none;
+    }
   }
 </style>

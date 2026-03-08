@@ -1,4 +1,64 @@
+---
+/* ── Standard service cards ── */
+const services = [
+  {
+    icon: "📱",
+    title: "Mobile Application",
+    desc: "Cross-platform apps for iOS & Android — built to your budget without compromising quality. Available on App Store and Play Store.",
+    revealDelay: "",
+  },
+  {
+    icon: "💻",
+    title: "Web Application",
+    desc: "Scalable, high-performance web platforms using modern frameworks. From SaaS dashboards to enterprise portals — we architect for growth.",
+    revealDelay: "reveal-delay-1",
+  },
+  {
+    icon: "🔗",
+    title: "LINE Integration",
+    desc: "Leverage Thailand's #1 super app. Seamless LINE integration to expand reach, boost engagement, and connect with your Thai audience.",
+    revealDelay: "reveal-delay-2",
+  },
+  {
+    icon: "⚙️",
+    title: "ERP System",
+    desc: "Custom ERP solutions built around your unique workflows. User-friendly, process-aligned systems that drive operational efficiency.",
+    revealDelay: "reveal-delay-1",
+  },
+  {
+    icon: "🖥️",
+    title: "POS System",
+    desc: "Holistic point-of-sale solutions combining smart hardware and software. Inventory, transactions, and analytics — all integrated seamlessly.",
+    revealDelay: "reveal-delay-2",
+  },
+  {
+    icon: "💳",
+    title: "Payment Gateway",
+    desc: "Comprehensive payment integrations — credit cards, QR Prompt Pay, PayPal, and more. Secure, reliable, and customizable.",
+    revealDelay: "reveal-delay-3",
+  },
+];
+
+/* ── CTO as a Service (special wide card) ── */
+const ctoService = {
+  icon: "👑",
+  title: "CTO as a Service",
+  desc: "For special projects requiring strategic leadership and deep technical expertise. We embed as your extended team — planning, building, and delivering bespoke applications from inception to launch.",
+  linkText: "Discuss Your Project →",
+};
+
+/* ── ESG card ── */
+const esgService = {
+  icon: "🌱",
+  title: "ESG & Digital Transformation",
+  desc: "Promote sustainable practices through digital innovation. We help organizations embrace responsible tech governance for a better future.",
+  revealDelay: "reveal-delay-1",
+};
+---
+
+<!-- ══════════════════════════ Services Section ══════════════════════════ -->
 <section id="services" class="services-section">
+  <!-- Header -->
   <div class="services-header reveal">
     <div class="section-tag">What We Build</div>
     <h2 class="section-title">Our <span class="accent">Services</span></h2>
@@ -7,103 +67,65 @@
       tailored to your business needs.
     </p>
   </div>
+
+  <!-- Service Cards Grid -->
   <div class="services-grid">
-    <div class="service-card glass-card reveal">
-      <div class="service-icon">📱</div>
-      <div class="service-title">Mobile Application</div>
-      <div class="service-desc">
-        Cross-platform apps for iOS & Android — built to your budget without
-        compromising quality. Available on App Store and Play Store.
-      </div>
-      <a href="#contact" class="service-link">Learn more →</a>
-    </div>
-    <div class="service-card glass-card reveal reveal-delay-1">
-      <div class="service-icon">💻</div>
-      <div class="service-title">Web Application</div>
-      <div class="service-desc">
-        Scalable, high-performance web platforms using modern frameworks. From
-        SaaS dashboards to enterprise portals — we architect for growth.
-      </div>
-      <a href="#contact" class="service-link">Learn more →</a>
-    </div>
-    <div class="service-card glass-card reveal reveal-delay-2">
-      <div class="service-icon">🔗</div>
-      <div class="service-title">LINE Integration</div>
-      <div class="service-desc">
-        Leverage Thailand's #1 super app. Seamless LINE integration to expand
-        reach, boost engagement, and connect with your Thai audience.
-      </div>
-      <a href="#contact" class="service-link">Learn more →</a>
-    </div>
-    <div class="service-card glass-card reveal reveal-delay-1">
-      <div class="service-icon">⚙️</div>
-      <div class="service-title">ERP System</div>
-      <div class="service-desc">
-        Custom ERP solutions built around your unique workflows. User-friendly,
-        process-aligned systems that drive operational efficiency.
-      </div>
-      <a href="#contact" class="service-link">Learn more →</a>
-    </div>
-    <div class="service-card glass-card reveal reveal-delay-2">
-      <div class="service-icon">🖥️</div>
-      <div class="service-title">POS System</div>
-      <div class="service-desc">
-        Holistic point-of-sale solutions combining smart hardware and software.
-        Inventory, transactions, and analytics — all integrated seamlessly.
-      </div>
-      <a href="#contact" class="service-link">Learn more →</a>
-    </div>
-    <div class="service-card glass-card reveal reveal-delay-3">
-      <div class="service-icon">💳</div>
-      <div class="service-title">Payment Gateway</div>
-      <div class="service-desc">
-        Comprehensive payment integrations — credit cards, QR Prompt Pay,
-        PayPal, and more. Secure, reliable, and customizable.
-      </div>
-      <a href="#contact" class="service-link">Learn more →</a>
-    </div>
+    {/* Standard cards */}
+    {
+      services.map(({ icon, title, desc, revealDelay }) => (
+        <div class={`service-card glass-card reveal ${revealDelay}`}>
+          <div class="service-icon">{icon}</div>
+          <div class="service-title">{title}</div>
+          <div class="service-desc">{desc}</div>
+          <a href="#contact" class="service-link">
+            Learn more →
+          </a>
+        </div>
+      ))
+    }
+
+    {/* CTO as a Service — spans 2 columns */}
     <div class="service-card glass-card reveal cto-card">
       <div class="cto-card-inner">
-        <div class="service-icon cto-icon">👑</div>
+        <div class="service-icon cto-icon">{ctoService.icon}</div>
         <div>
-          <div class="service-title">CTO as a Service</div>
-          <div class="service-desc">
-            For special projects requiring strategic leadership and deep
-            technical expertise. We embed as your extended team — planning,
-            building, and delivering bespoke applications from inception to
-            launch.
-          </div>
-          <a href="#contact" class="service-link" style="margin-top: 14px;"
-            >Discuss Your Project →</a
-          >
+          <div class="service-title">{ctoService.title}</div>
+          <div class="service-desc">{ctoService.desc}</div>
+          <a href="#contact" class="service-link" style="margin-top: 14px;">
+            {ctoService.linkText}
+          </a>
         </div>
       </div>
     </div>
-    <div class="service-card glass-card reveal reveal-delay-1">
-      <div class="service-icon">🌱</div>
-      <div class="service-title">ESG & Digital Transformation</div>
-      <div class="service-desc">
-        Promote sustainable practices through digital innovation. We help
-        organizations embrace responsible tech governance for a better future.
-      </div>
+
+    {/* ESG card */}
+    <div class={`service-card glass-card reveal ${esgService.revealDelay}`}>
+      <div class="service-icon">{esgService.icon}</div>
+      <div class="service-title">{esgService.title}</div>
+      <div class="service-desc">{esgService.desc}</div>
       <a href="#contact" class="service-link">Learn more →</a>
     </div>
   </div>
 </section>
 
+<!-- ══════════════════════════ Styles ══════════════════════════ -->
 <style>
+  /* ── Section ── */
   .services-section {
     background: transparent;
   }
+
   .services-header {
     text-align: center;
     max-width: 600px;
     margin: 0 auto 60px;
   }
+
   .services-header :global(.section-desc) {
     margin: 0 auto;
   }
 
+  /* ── Grid ── */
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -112,6 +134,7 @@
     margin: 0 auto;
   }
 
+  /* ── Card Base ── */
   .service-card {
     padding: 32px 28px;
     border-radius: 18px;
@@ -119,6 +142,8 @@
     overflow: hidden;
     cursor: default;
   }
+
+  /* Top glow line on hover */
   .service-card::before {
     content: "";
     position: absolute;
@@ -135,10 +160,12 @@
     opacity: 0;
     transition: opacity 0.3s;
   }
+
   .service-card:hover::before {
     opacity: 1;
   }
 
+  /* ── Icon ── */
   .service-icon {
     width: 52px;
     height: 52px;
@@ -154,22 +181,27 @@
       background 0.3s,
       box-shadow 0.3s;
   }
+
   .service-card:hover .service-icon {
     background: rgba(0, 102, 255, 0.2);
     box-shadow: 0 0 20px rgba(0, 102, 255, 0.25);
   }
 
+  /* ── Title & Description ── */
   .service-title {
     font-family: "Inter", sans-serif;
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 10px;
   }
+
   .service-desc {
     font-size: 14px;
     color: var(--muted);
     line-height: 1.65;
   }
+
+  /* ── Link ── */
   .service-link {
     display: inline-flex;
     align-items: center;
@@ -181,39 +213,48 @@
     font-weight: 500;
     transition: gap 0.2s;
   }
+
   .service-card:hover .service-link {
     gap: 10px;
   }
 
+  /* ── CTO Card (spans 2 columns) ── */
   .cto-card {
     grid-column: span 2;
   }
+
   .cto-card-inner {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 20px;
     align-items: start;
   }
+
   .cto-icon {
     margin-bottom: 0;
   }
 
+  /* ── Responsive ── */
   @media (max-width: 1024px) {
     .services-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
+
   @media (max-width: 768px) {
     .services-grid {
       grid-template-columns: 1fr;
     }
+
     .cto-card {
       grid-column: span 1;
     }
+
     .cto-card-inner {
       grid-template-columns: 1fr;
       gap: 0;
     }
+
     .cto-icon {
       margin-bottom: 20px;
     }

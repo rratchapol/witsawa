@@ -1,69 +1,199 @@
+---
+/* ── Blog posts data ── */
+const blogPosts = [
+  {
+    icon: "📊",
+    tag: "Digital Transformation",
+    title: "How ISO/IEC 29110 Elevates Software Quality for Small Teams",
+    excerpt:
+      "Explore how Witsawa achieved and maintains ISO 29110 certification and what it means for the quality of your delivered product.",
+    author: "Witsawa Team",
+    date: "March 2024",
+    revealDelay: "",
+  },
+  {
+    icon: "🌱",
+    tag: "ESG & Sustainability",
+    title: "Building Green Tech: ESG-Driven Software Development Practices",
+    excerpt:
+      "How responsible digital transformation can help organizations meet ESG goals while accelerating innovation and reducing waste.",
+    author: "Witsawa Team",
+    date: "February 2024",
+    revealDelay: "reveal-delay-1",
+    imgStyle:
+      "background: linear-gradient(135deg, rgba(0,80,160,0.5), rgba(34,211,238,0.2));",
+  },
+  {
+    icon: "🚀",
+    tag: "Startup Ecosystem",
+    title: "From Idea to Launch: What Startups Get Wrong About Software",
+    excerpt:
+      "Lessons from Witsawa's work with True Digital Park startups — the most common pitfalls and how to avoid them when building your first product.",
+    author: "Witsawa Team",
+    date: "January 2024",
+    revealDelay: "reveal-delay-2",
+    imgStyle:
+      "background: linear-gradient(135deg, rgba(80,0,160,0.4), rgba(0,102,255,0.25));",
+  },
+];
+---
+
+<!-- ══════════════════════════ Blog Section ══════════════════════════ -->
 <section id="blog" class="blog-section">
-  <div class="blog-header" style="max-width: 1100px; margin-left: auto; margin-right: auto;">
+  <!-- Header -->
+  <div
+    class="blog-header"
+    style="max-width: 1100px; margin-left: auto; margin-right: auto;"
+  >
     <div class="reveal">
       <div class="section-tag">Insights</div>
       <h2 class="section-title">Latest <span class="accent">Articles</span></h2>
     </div>
-    <a href="#" class="btn-ghost reveal" style="font-size:13px; padding: 10px 22px; white-space:nowrap;">View All →</a>
+    <a
+      href="#"
+      class="btn-ghost reveal"
+      style="font-size:13px; padding: 10px 22px; white-space:nowrap;"
+    >
+      View All →
+    </a>
   </div>
+
+  <!-- Blog Cards Grid -->
   <div class="blog-grid" style="max-width: 1100px; margin: 0 auto;">
-    <div class="blog-card glass-card reveal">
-      <div class="blog-img">📊</div>
-      <div class="blog-body">
-        <div class="blog-tag">Digital Transformation</div>
-        <div class="blog-title">How ISO/IEC 29110 Elevates Software Quality for Small Teams</div>
-        <div class="blog-excerpt">Explore how Witsawa achieved and maintains ISO 29110 certification and what it means for the quality of your delivered product.</div>
-        <div class="blog-meta"><span>Witsawa Team</span><span>·</span><span>March 2024</span></div>
-      </div>
-    </div>
-    <div class="blog-card glass-card reveal reveal-delay-1">
-      <div class="blog-img" style="background: linear-gradient(135deg, rgba(0,80,160,0.5), rgba(34,211,238,0.2));">🌱</div>
-      <div class="blog-body">
-        <div class="blog-tag">ESG & Sustainability</div>
-        <div class="blog-title">Building Green Tech: ESG-Driven Software Development Practices</div>
-        <div class="blog-excerpt">How responsible digital transformation can help organizations meet ESG goals while accelerating innovation and reducing waste.</div>
-        <div class="blog-meta"><span>Witsawa Team</span><span>·</span><span>February 2024</span></div>
-      </div>
-    </div>
-    <div class="blog-card glass-card reveal reveal-delay-2">
-      <div class="blog-img" style="background: linear-gradient(135deg, rgba(80,0,160,0.4), rgba(0,102,255,0.25));">🚀</div>
-      <div class="blog-body">
-        <div class="blog-tag">Startup Ecosystem</div>
-        <div class="blog-title">From Idea to Launch: What Startups Get Wrong About Software</div>
-        <div class="blog-excerpt">Lessons from Witsawa's work with True Digital Park startups — the most common pitfalls and how to avoid them when building your first product.</div>
-        <div class="blog-meta"><span>Witsawa Team</span><span>·</span><span>January 2024</span></div>
-      </div>
-    </div>
+    {
+      blogPosts.map(
+        ({
+          icon,
+          tag,
+          title,
+          excerpt,
+          author,
+          date,
+          revealDelay,
+          imgStyle,
+        }) => (
+          <div class={`blog-card glass-card reveal ${revealDelay || ""}`}>
+            <div class="blog-img" style={imgStyle}>
+              {icon}
+            </div>
+            <div class="blog-body">
+              <div class="blog-tag">{tag}</div>
+              <div class="blog-title">{title}</div>
+              <div class="blog-excerpt">{excerpt}</div>
+              <div class="blog-meta">
+                <span>{author}</span>
+                <span>·</span>
+                <span>{date}</span>
+              </div>
+            </div>
+          </div>
+        ),
+      )
+    }
   </div>
 </section>
 
+<!-- ══════════════════════════ Styles ══════════════════════════ -->
 <style>
-  .blog-section { padding: 100px 5%; }
-  .blog-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; }
-  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
-  .blog-card { padding: 0; overflow: hidden; border-radius: 18px; }
-  .blog-img {
-    width: 100%; height: 180px;
-    background: linear-gradient(135deg, rgba(0,52,128,0.5), rgba(0,102,255,0.25));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 48px; position: relative; overflow: hidden;
+  /* ── Section ── */
+  .blog-section {
+    padding: 100px 5%;
   }
-  .blog-img::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(to bottom, transparent 50%, rgba(2,4,8,0.7));
-  }
-  .blog-body { padding: 24px; }
-  .blog-tag {
-    font-size: 11px; font-weight: 700; letter-spacing: 1.2px;
-    text-transform: uppercase; color: var(--blue-light); margin-bottom: 10px;
-  }
-  .blog-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; line-height: 1.3; margin-bottom: 10px; }
-  .blog-excerpt { font-size: 13px; color: var(--muted); line-height: 1.6; }
-  .blog-meta { display: flex; align-items: center; gap: 14px; margin-top: 16px; font-size: 12px; color: var(--muted); }
 
+  /* ── Header ── */
+  .blog-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+
+  /* ── Cards Grid ── */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .blog-card {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 18px;
+  }
+
+  /* ── Card Image ── */
+  .blog-img {
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 52, 128, 0.5),
+      rgba(0, 102, 255, 0.25)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .blog-img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(2, 4, 8, 0.7));
+  }
+
+  /* ── Card Body ── */
+  .blog-body {
+    padding: 24px;
+  }
+
+  .blog-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    margin-bottom: 10px;
+  }
+
+  .blog-title {
+    font-family: "Inter", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+
+  .blog-excerpt {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ── Responsive ── */
   @media (max-width: 768px) {
-    .blog-grid { grid-template-columns: 1fr; }
-    .blog-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
   }
 </style>
